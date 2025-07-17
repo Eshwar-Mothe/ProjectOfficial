@@ -1,4 +1,4 @@
-import React from 'react'
+  import React from 'react'
 import Navbar from './Navbar'
 import './Styles.css'
 import HeroSection from './HeroSection'

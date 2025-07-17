@@ -3,9 +3,15 @@ import Navbar from '../Common/Navbar';
 import { Shield, Globe, Users, Zap, Server, Lock, CheckCircle, ArrowRight } from 'lucide-react';
 import Navigation from './Navigation';
 import './AboutStyles.css'
+import { useNavigate } from 'react-router-dom';
 
 const About = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const navigate = useNavigate()
+
+    const handleButtonClick = () => {
+        navigate('/signup')
+    }
     return (
         <>
             <Navigation isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen}/>
@@ -28,13 +34,13 @@ const About = () => {
                             whether you're an NRI, F1/OPT student, H1B professional, or green card holder.
                         </p>
                         <div className="hero-buttons">
-                            <a href="/signup" className="btn">
+                            <button onClick={handleButtonClick} className="btn">
                                 Get Started Today
                                 <ArrowRight className="btn-icon" />
-                            </a>
-                            <a href="#learn-more" className="btn btn-secondary">
+                            </button>
+                            <button onClick={()=>navigate('/services')} className="btn btn-secondary">
                                 Learn More
-                            </a>
+                            </button>
                         </div>
                     </div>
                 </div>
