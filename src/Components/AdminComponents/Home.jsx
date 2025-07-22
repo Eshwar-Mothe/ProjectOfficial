@@ -21,13 +21,14 @@ const AdminHome = () => {
                 todaySignups: prev.todaySignups + 1,
             }));
         });
-        
+
         fetch('https://projectbackend-7v9s.onrender.com/api/admin/stats')
             .then(res => res.json())
             .then(data => {
                 setStats(data.stats);
                 setRecentUsers(data.recentUsers);
             });
+            console.log(recentUsers)
 
         return () => {
             socket.off('newUserSignedUp');
@@ -65,6 +66,7 @@ const AdminHome = () => {
                         {recentUsers.map((user, idx) => (
                             <li key={idx} className="user-item">
                                 <span>{user.name}</span>
+                                <span>{user.phone}</span>
                                 <span>{user.email}</span>
                             </li>
                         ))}

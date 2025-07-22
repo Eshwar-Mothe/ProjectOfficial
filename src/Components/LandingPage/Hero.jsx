@@ -11,9 +11,13 @@ const Hero = () => {
     navigate('/signup')
   }
 
+   const handleContactClick = () => {
+    navigate('/scheduleCall')
+  }
+
   return (
     <section id="home" className="hero">
-      
+
       <div className="hero-bg">
         <img
           src="https://images.pexels.com/photos/6863183/pexels-photo-6863183.jpeg?auto=compress&cs=tinysrgb&w=1920"
@@ -34,10 +38,16 @@ const Hero = () => {
               We simplify your tax filing whether you're an H1B, student, or visa holder.
               Expert support, secure uploads, and timely filings — all in one place.
             </p>
-            <button className="btn-hero" onClick={handleStartClick}>
-              Get Started Now
-              <ArrowRight className="w-5 h-5" />
-            </button>
+            <div className="d-flex gap-4">
+              <button className="btn-hero" onClick={handleStartClick}>
+                Get Started
+                <ArrowRight className="w-5 h-5" />
+              </button>
+              <button className="btn-hero" onClick={handleContactClick}>
+                Contact Us
+                <ArrowRight className="w-5 h-5" />
+              </button>
+            </div>
           </div>
         </div>
         <div></div>

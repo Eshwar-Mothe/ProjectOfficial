@@ -27,7 +27,7 @@ const Dashboard = () => {
   const {
     id = "AT202507175249857",
     name = 'User',
-    email = "sample@gmai.com",
+    email = "sample@gmail.com",
     phone = "85199998764",
     state = "BOSTON",
   } = user || {};
