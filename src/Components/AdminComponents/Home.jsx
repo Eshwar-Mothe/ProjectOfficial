@@ -1,80 +1,49 @@
-import React, { useEffect, useState } from 'react';
-import io from 'socket.io-client';
-import './AdminStyles.css';
+// Home.jsx
+import React, { useState } from "react";
+import { AdminProvider } from "./AdminContext";
+import Sidebar from "./Sidebar";
+import Overview from "./Overview";
+import AddAdmin from "./AddAdmin";
+import ViewUsers from "./ViewUsers";
+import "./AdminStyles.css";
 
-const socket = io('https://projectbackend-7v9s.onrender.com');
+const Home = () => {
+  const [activePage, setActivePage] = useState('overview');
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+  const [sidebarMobile, setSidebarMobile] = useState(false);
 
-const AdminHome = () => {
-    const [recentUsers, setRecentUsers] = useState([]);
-    const [stats, setStats] = useState({
-        totalUsers: 0,
-        todaySignups: 0,
-        admins: 0,
-    });
+  // Responsive handling
+  React.useEffect(() => {
+    const handleResize = () => setSidebarCollapsed(window.innerWidth < 700);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
-    useEffect(() => {
-        socket.on('newUserSignedUp', (newUser) => {
-            setRecentUsers((prev) => [newUser, ...prev.slice(0, 4)]);
-            setStats((prev) => ({
-                ...prev,
-                totalUsers: prev.totalUsers + 1,
-                todaySignups: prev.todaySignups + 1,
-            }));
-        });
+  const handleMobileSidebar = () => setSidebarMobile(val => !val);
 
-        fetch('https://projectbackend-7v9s.onrender.com/api/admin/stats')
-            .then(res => res.json())
-            .then(data => {
-                setStats(data.stats);
-                setRecentUsers(data.recentUsers);
-            });
-            console.log(recentUsers)
-
-        return () => {
-            socket.off('newUserSignedUp');
-        };
-    }, []);
-
-    return (
-        <div className="admin-home">
-            <div className="admin-header">
-                <h1>Admin Dashboard</h1>
-                <p>Real-time insights into your user activity</p>
-            </div>
-
-            <div className="stats-grid">
-                <div className="stat-card">
-                    <h2>{stats.totalUsers}</h2>
-                    <p>Total Users</p>
-                </div>
-                <div className="stat-card">
-                    <h2>{stats.todaySignups}</h2>
-                    <p>Today's Signups</p>
-                </div>
-                <div className="stat-card">
-                    <h2>{stats.admins}</h2>
-                    <p>Admins</p>
-                </div>
-            </div>
-
-            <div className="recent-users">
-                <h3>Recent Signups</h3>
-                {recentUsers.length === 0 ? (
-                    <p>No users yet</p>
-                ) : (
-                    <ul>
-                        {recentUsers.map((user, idx) => (
-                            <li key={idx} className="user-item">
-                                <span>{user.name}</span>
-                                <span>{user.phone}</span>
-                                <span>{user.email}</span>
-                            </li>
-                        ))}
-                    </ul>
-                )}
-            </div>
-        </div>
-    );
+  return (
+    <AdminProvider>
+      <div className={`admin-home-container${sidebarMobile ? ' sidebar-mobile' : ''}`}>
+        <Sidebar
+          sidebarCollapsed={sidebarCollapsed}
+          sidebarMobile={sidebarMobile}
+          handleMobileSidebar={handleMobileSidebar}
+          activePage={activePage}
+          setActivePage={setActivePage}
+        />
+        <main className="admin-main-content">
+          {/* Mobile menu toggle */}
+          <div className="sidebar-mobile-btn" onClick={handleMobileSidebar}>
+            <span className="hamburger"></span>
+          </div>
+          {activePage === "overview" && <Overview />}
+          {activePage === "addAdmin" && <AddAdmin />}
+          {activePage === "viewUsers" && <ViewUsers />}
+        </main>
+      </div>
+    </AdminProvider>
+  );
 };
 
-export default AdminHome;
+export default Home;

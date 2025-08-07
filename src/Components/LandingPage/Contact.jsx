@@ -13,6 +13,7 @@ function Contact() {
     subject: '',
     message: ''
   });
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState(null);
   const [isVisible, setIsVisible] = useState({});
 
@@ -133,10 +134,9 @@ function Contact() {
 
   return (
     <>
-      <Navigation />
+      <Navigation isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
       <div className="contactPage">
         <div className="contact">
-          {/* Hero Section */}
           <section className="contact-hero">
             <div className="hero-background"></div>
             <div className="hero-content">
@@ -337,13 +337,18 @@ function Contact() {
                         <span className="btn-subtitle">+1 (555) 123-4567</span>
                       </div>
                     </a>
-                    <a href="mailto:support@taxpro-usa.com" className="quick-contact-btn email">
+                    <a
+                      href={`mailto:help.adwiktaxsolutions@gmail.com?subject=Support%20Request&body=Hi%2C%20I%20need%20help%20with%20my%20tax%20filing.`}
+                      className="quick-contact-btn email"
+                    >
                       <Mail size={20} />
                       <div>
                         <span className="btn-title">Email Us</span>
-                        <span className="btn-subtitle">support@taxpro-usa.com</span>
+                        <span className="btn-subtitle">help.adwiktaxsolutions@gmail.com</span>
                       </div>
                     </a>
+
+
                     <button className="quick-contact-btn chat">
                       <MessageCircle size={20} />
                       <div>

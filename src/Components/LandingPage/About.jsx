@@ -55,7 +55,7 @@ const About = () => {
               <span className="hero-title-gradient">Across Borders</span>
             </h1>
             <p className="hero-description">
-              Adwik Tax Consultancy is your trusted partner for accurate, secure, and stress-free U.S. tax filing — whether you're an NRI, F1/OPT student, H1B professional, or green card holder.
+              Aadwik Tax Consultancy is your trusted partner for accurate, secure, and stress-free U.S. tax filing — whether you're an NRI, F1/OPT student, H1B professional, or green card holder.
             </p>
             <div className="hero-buttons">
               <motion.button
@@ -94,7 +94,7 @@ const About = () => {
                 <h2 className="section-title">Who We Are</h2>
                 <div className="about-text">
                   <p>
-                    Founded in <span className="highlight">2023</span>, Adwik emerged from a vision:
+                    Founded in <span className="highlight">2023</span>, Aadwik emerged from a vision:
                     <em className="italic"> to simplify U.S. tax filing for global citizens</em>.
                   </p>
                   <p>
@@ -136,7 +136,7 @@ const About = () => {
       >
         <div className="container">
           <motion.div className="section-header" variants={fadeUp}>
-            <h2 className="section-title">Why Join the Adwik Family?</h2>
+            <h2 className="section-title">Why Join the Aadwik Family?</h2>
             <p className="section-subtitle">
               Experience the difference with our comprehensive suite of services designed for global tax filers
             </p>
@@ -207,7 +207,7 @@ const About = () => {
       >
         <div className="container">
           <motion.div className="section-header" variants={fadeUp}>
-            <h2 className="section-title">Meet the People Behind Adwik</h2>
+            <h2 className="section-title">Meet the People Behind Aadwik</h2>
             <p className="section-subtitle">Passionate leaders driving innovation in tax consultancy</p>
           </motion.div>
 
@@ -259,7 +259,7 @@ const About = () => {
           <motion.div className="cta-content" variants={fadeUp}>
             <h2 className="cta-title">Ready to File with Confidence?</h2>
             <p className="cta-description">
-              Join thousands of global filers who trust Adwik to get it done — accurately, on time, and stress-free.
+              Join thousands of global filers who trust Aadwik to get it done — accurately, on time, and stress-free.
             </p>
             <motion.a
               href="/signup"

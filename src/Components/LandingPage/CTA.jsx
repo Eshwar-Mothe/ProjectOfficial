@@ -12,7 +12,7 @@ const CTA = () => {
       <div className="cta-content">
         <h2>Ready to File Your Taxes with Confidence?</h2>
         <p>
-          Join thousands of satisfied customers who trust Adwik for their US tax filing needs.
+          Join thousands of satisfied customers who trust Aadwik for their US tax filing needs.
         </p>
         <div className="cta-buttons">
           <button className="btn-cta-primary" >

@@ -11,6 +11,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Services = () => {
   const navigate = useNavigate();
+  
 
   const services = [
     {
@@ -65,7 +66,7 @@ const Services = () => {
     <section id="services" className="services">
       <div className="container">
         <h2 className="section-title">
-          Here's Why Thousands Choose Adwik Every Tax Season..!
+          Here's Why Thousands Choose Aadwik Every Tax Season..!
         </h2>
 
         <div className="services-grid">

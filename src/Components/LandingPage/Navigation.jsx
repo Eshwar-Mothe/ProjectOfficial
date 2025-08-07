@@ -21,7 +21,7 @@ const Navigation = ({ isMenuOpen, setIsMenuOpen }) => {
       <nav className="navbar">
         <div className="nav-container">
           <div className="logo">
-            <img src="logo.png" alt="Logo" className="logo-img" />
+            <img src="logowbg.png" alt="Logo" className="logo-img" />
           </div>
 
           <div className="nav-links desktop-only">

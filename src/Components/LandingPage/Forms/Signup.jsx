@@ -33,16 +33,16 @@ const Signup = () => {
 
       const payload = {
         to: values.email,
-        subject: "Welcome to Adwik Tax Consultancy - OTP Verification",
+        subject: "Welcome to Aadwik Tax Consultancy - OTP Verification",
         html:
           ` <div style="font-family: Arial, sans-serif; font-size: 15px;">
-      <h2 style="color:rgb(47, 226, 235);">Welcome to Adwik Tax Consultancy!</h2>
+      <h2 style="color:rgb(47, 226, 235);">Welcome to Aadwik Tax Consultancy!</h2>
       <p>Dear ${values.name},</p>
       <p>Thank you for registering with us. To verify your email address, please use the OTP below:</p>
       <h3 style="background: #f0f0f0; padding: 10px 15px; border-radius: 5px; width: fit-content;">${newOtp}</h3>
       <p>This OTP is valid for the next 10 minutes.</p>
       <p>If you did not request this, you can safely ignore this email.</p>
-      <p>Warm regards,<br/><strong>Adwik Tax Consultancy Team</strong></p>
+      <p>Warm regards,<br/><strong>Aadwik Tax Consultancy Team</strong></p>
     </div>`
 
       };
@@ -104,7 +104,7 @@ const Signup = () => {
       <div className="auth-container signup-bg">
         <Card className="auth-card">
           <Title level={2}>Create your account</Title>
-          <Text type="secondary">Get started with Adwik Tax Consultancy</Text>
+          <Text type="secondary">Get started with Aadwik Tax Consultancy</Text>
 
           <Form
             layout="vertical"

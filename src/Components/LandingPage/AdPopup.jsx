@@ -32,7 +32,7 @@ const AdPopup = () => {
 
         <div className="popup-tagline">🔥 Limited Time Offer</div>
         <h2 className="popup-title">Get Up to <span className="highlight">25% OFF</span></h2>
-        <p className="popup-subtext">File your taxes with Adwik tax solutions and enjoy unbeatable savings.</p>
+        <p className="popup-subtext">File your taxes with Aadwik tax solutions and enjoy unbeatable savings.</p>
 
         <div className="popup-benefits">
           <div className="benefit-card">

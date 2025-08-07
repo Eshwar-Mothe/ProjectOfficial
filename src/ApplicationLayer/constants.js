@@ -7,5 +7,12 @@ const emailVerificationUrl = `${baseUrl}/sendMail`
 const registerUrl = `${baseUrl}/newUser`
 const loginUrl = `${baseUrl}/login`
 
+// User Panel URLS
+const uploadUrl = `${baseUrl}/upload`
+const newTicketUrl = `${baseUrl}/newTicket`
 
-export {emailVerificationUrl, registerUrl, loginUrl}
+// User Get Urls
+
+const getTicketUpdate = `${baseUrl}/user/tickets`
+
+export {emailVerificationUrl, registerUrl, loginUrl, uploadUrl, newTicketUrl, getTicketUpdate}

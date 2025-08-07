@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Form, Input, Button, DatePicker, TimePicker, Card, message } from 'antd';
 import axios from 'axios';
 // import './WriteUs.css';
@@ -8,7 +8,7 @@ import Footer from './Footer';
 
 const WriteUs = () => {
     const [form] = Form.useForm();
-
+    const [isMenuOpen, setIsMenuOpen] = useState(false)
     const onFinish = async (values) => {
         // const payload = {
         //     name: values.name,
@@ -31,7 +31,8 @@ const WriteUs = () => {
 
     return (
         <>
-            <Navigation />
+            <Navigation isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+
             <div className="write-us-wrapper">
                 <Card className="write-us-card" title="Schedule a Call" bordered={false}>
                     <Form form={form} layout="vertical" onFinish={onFinish}>

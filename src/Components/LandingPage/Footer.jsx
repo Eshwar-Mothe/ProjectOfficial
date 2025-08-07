@@ -10,9 +10,9 @@ const Footer = () => {
         <div>
           <div className="footer-brand">
             <div className="logo">
-          <img src="logowbg.png" alt="Logo" className="logo-img" />
+          <img src="logoWhite.png" alt="Logo" className="logo-img" />
         </div>
-            <span className="logo-text">Adwik</span>
+            <span className="logo-text">Aadwik</span>
           </div>
           <p className="footer-description">
             Simplifying US tax filing for non-residents, visa holders, and international students 
@@ -43,7 +43,7 @@ const Footer = () => {
             </div>
             <div className="contact-item">
               <Mail className="w-4 h-4" />
-              <span>support@adwik.com</span>
+              <span>support@aadwik.com</span>
             </div>
             <div className="contact-item">
               <Clock className="w-4 h-4" />
@@ -54,7 +54,7 @@ const Footer = () => {
       </div>
       
       <div className="footer-bottom">
-        <p>&copy; {yearOfCurrent} Adwik. All rights reserved. | Privacy Policy | Terms of Service | Security</p>
+        <p>&copy; {yearOfCurrent} Aadwik. All rights reserved. | Privacy Policy | Terms of Service | Security</p>
       </div>
     </footer>
   );

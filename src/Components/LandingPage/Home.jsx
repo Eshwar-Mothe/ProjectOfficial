@@ -88,15 +88,16 @@ const Home = () => {
 
         {/* Services Section with Stagger Animation */}
         <motion.section
-          variants={containerStagger}
+          variants={fadeUpVariant}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.5 }}
+          viewport={{ once: true, amount: 0.2 }} // or remove "once" if needed
         >
           <motion.div variants={fadeUpVariant}>
             <Services />
           </motion.div>
         </motion.section>
+
 
         {/* Stats Section */}
         <motion.section

@@ -1,4 +1,5 @@
-import { registerUrl, loginUrl, emailVerificationUrl } from "./constants";
+import { message } from "antd";
+import { registerUrl, loginUrl, emailVerificationUrl, uploadUrl, newTicketUrl, getTicketUpdate } from "./constants";
 
 const postRegisterData = async (payload) => {
   console.log("received payload is: ", payload)
@@ -58,6 +59,55 @@ const postLoginData = async (payload) => {
   }
 }
 
+const postDocData = async (payload) => {
+  try {
+    const res = await fetch(uploadUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: payload
+    })
+    const data = await res.json()
+    return data
+  } catch (err) {
+    console.log("Failed to upload", err)
+    return { status: 500, message: "Failed to upload Document" }
+  }
+}
+
+const postNewTicketData = async (payload) => {
+  try{
+    const res = await fetch(newTicketUrl, {
+      method: "POST",
+      headers:{
+        "content-Type": 'application/json'
+      },
+      body: JSON.stringify(payload)
+    })
+
+    const data = await res.json()
+    return data
+  }
+  catch(err){
+    console.log("Failed to upload", err)
+    return { status: 500, message: "Failed to Raise a Request, try again..!" }
+  }
+}
 
 
-export { postRegisterData, postEmailData, postLoginData }
+// Users data Get Apis
+
+const getTicketsData = async() => {
+  try{
+    const res = await fetch(getTicketUpdate)
+    const data = await res.json()
+    return data
+  }catch(err){
+     console.log("Failed to upload", err)
+    return { status: 500, message: "Error While fetching Tickets..try again..!" }
+  }
+}
+
+
+export { postRegisterData, postEmailData, postLoginData, postDocData, postNewTicketData, getTicketsData }

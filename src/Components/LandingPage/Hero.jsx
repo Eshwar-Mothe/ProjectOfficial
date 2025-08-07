@@ -11,9 +11,14 @@ const Hero = () => {
     navigate('/signup')
   }
 
-   const handleContactClick = () => {
+  const handleContactClick = () => {
     navigate('/scheduleCall')
   }
+
+   const handleWhatsAppClick = () => {
+    const message = encodeURIComponent("Hi! I want to know more about your services.");
+    window.open(`https://wa.me/8125647154?text=${message}`, '_blank');
+  };
 
   return (
     <section id="home" className="hero">
@@ -45,6 +50,10 @@ const Hero = () => {
               </button>
               <button className="btn-hero" onClick={handleContactClick}>
                 Contact Us
+                <ArrowRight className="w-5 h-5" />
+              </button>
+              <button className="btn-hero" onClick={handleWhatsAppClick}>
+                WhatsApp
                 <ArrowRight className="w-5 h-5" />
               </button>
             </div>

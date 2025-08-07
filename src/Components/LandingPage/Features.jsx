@@ -2,7 +2,7 @@ import React from 'react';
 import { Shield, Clock, Users, DollarSign } from 'lucide-react';
 
 
-const Features = () => {
+const   Features = () => {
   const features = [
     {
       icon: <Shield className="feature-icon-color green" />,
@@ -31,7 +31,7 @@ const Features = () => {
       <div className="features-content">
         {/* Left: Text & List */}
         <div className="features-text">
-          <h2>Why Adwik is Different</h2>
+          <h2>Why Aadwik is Different</h2>
           <p>
             We understand the unique challenges faced by non-residents, visa holders, and international students.
             Our platform is built specifically for your needs.

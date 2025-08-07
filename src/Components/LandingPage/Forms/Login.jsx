@@ -10,6 +10,7 @@ const { Title, Text } = Typography;
 const Login = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [messageApi, contextHolder] = message.useMessage()
   const { setUser } = useUser(); 
   const navigate = useNavigate();
 
@@ -17,14 +18,16 @@ const Login = () => {
     setLoading(true);
     const response = await postLoginData(values);
     setLoading(false);
-
-    console.log(response,"her")
     if (response.success) {
-      message.success(response.message || 'Login successful');
+      messageApi.success(response.message || 'Login successful');
       setUser(response.user);
-      navigate('/user');
+      if(response.role === "admin"){
+        navigate('/admin');
+      }else{
+        navigate('/user');
+      }
     } else {
-      message.error(response.message || 'Invalid credentials');
+      messageApi.error(response.message || 'Invalid credentials');
     }
   };
 
@@ -32,9 +35,10 @@ const Login = () => {
     <>
       <Navigation isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
       <div className="auth-container login-bg">
+        {contextHolder}
         <Card className="auth-card">
           <Title level={2}>Sign in to your account</Title>
-          <Text type="secondary">Welcome back to Adwik</Text>
+          <Text type="secondary">Welcome back to Aadwik</Text>
 
           <Form layout="vertical" onFinish={onFinish} style={{ marginTop: 24 }}>
             <Form.Item name="email" label="Email" rules={[{ required: true, type: 'email' }]}>

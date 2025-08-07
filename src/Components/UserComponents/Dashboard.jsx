@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Layout, Menu, Dropdown, Avatar } from 'antd';
 import {
   HomeOutlined, FileTextOutlined, UploadOutlined,
@@ -8,17 +8,16 @@ import {
 import { useNavigate } from 'react-router-dom';
 import './userStyles.css';
 import { useUser } from '../../UserContext';
+import HomeView from './HomeView';
+import TaxFilesView from './TaxFilesView';
+import UploadView from './UploadView';
+import PaymentsView from './PaymentsView';
+import SupportView from './SupportView';
+
+// Import your new components 💼
+
 
 const { Header, Sider, Content } = Layout;
-
-const menuItems = [
-  { key: '1', icon: <HomeOutlined />, label: 'Home' },
-  { key: '2', icon: <FileTextOutlined />, label: 'My Tax Files' },
-  { key: '3', icon: <UploadOutlined />, label: 'Upload Documents' },
-  { key: '4', icon: <DollarOutlined />, label: 'Payments & Invoices' },
-  { key: '5', icon: <MessageOutlined />, label: 'Support & Messages' },
-  { key: '6', icon: <LogoutOutlined />, label: 'Logout' },
-];
 
 const Dashboard = () => {
   const { user, setUser } = useUser();
@@ -31,6 +30,8 @@ const Dashboard = () => {
     phone = "85199998764",
     state = "BOSTON",
   } = user || {};
+
+  const [selectedKey, setSelectedKey] = useState('1');
 
   const handleLogout = () => {
     sessionStorage.removeItem('user');
@@ -55,13 +56,40 @@ const Dashboard = () => {
     ],
   };
 
+  const menuItems = [
+    { key: '1', icon: <HomeOutlined />, label: 'Home' },
+    { key: '2', icon: <FileTextOutlined />, label: 'My Tax Files' },
+    { key: '3', icon: <UploadOutlined />, label: 'Upload Documents' },
+    { key: '4', icon: <DollarOutlined />, label: 'Payments & Invoices' },
+    { key: '5', icon: <MessageOutlined />, label: 'Support & Messages' },
+    { key: '6', icon: <LogoutOutlined />, label: 'Logout' },
+  ];
+
+  // Component rendering logic
+  const renderContent = () => {
+    switch (selectedKey) {
+      case '1': return <HomeView user={{ id, name, email, phone, state }} />;
+      case '2': return <TaxFilesView />;
+      case '3': return <UploadView />;
+      case '4': return <PaymentsView />;
+      case '5': return <SupportView />;
+      case '6': handleLogout(); return null;
+      default: return <HomeView user={{ id, name, email, phone, state }} />;
+    }
+  };
+
   return (
     <Layout style={{ minHeight: '100vh' }}>
       <Sider width={220} style={{ background: '#fff', borderRight: '1px solid #f0f0f0' }}>
         <div className="user-logo">
-          <img src="/logowbg.png" alt="Adwik Tax" className="portal-logo" />
+          <img src="/logowbg.png" alt="Aadwik Tax" className="portal-logo" />
         </div>
-        <Menu mode="inline" defaultSelectedKeys={['1']} items={menuItems} />
+        <Menu
+          mode="inline"
+          selectedKeys={[selectedKey]}
+          onClick={({ key }) => setSelectedKey(key)}
+          items={menuItems}
+        />
       </Sider>
 
       <Layout>
@@ -75,13 +103,7 @@ const Dashboard = () => {
         </Header>
 
         <Content className="portal-content">
-          <div className="inner-content">
-            <h1>User Dashboard</h1>
-            <p><strong>ID:</strong> {id}</p>
-            <p><strong>Email:</strong> {email}</p>
-            <p><strong>Phone:</strong> {phone}</p>
-            <p><strong>State:</strong> {state}</p>
-          </div>
+          {renderContent()}
         </Content>
       </Layout>
     </Layout>

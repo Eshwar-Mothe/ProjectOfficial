@@ -34,6 +34,7 @@ const staggerContainer = {
 };
 
 const Services = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [memberCount] = useState(847);
   const remainingSlots = 1000 - memberCount;
   const navigate = useNavigate();
@@ -114,7 +115,7 @@ const Services = () => {
 
   return (
     <>
-      <Navigation />
+      <Navigation isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
       <motion.div
         className="services-page"
         initial="hidden"

@@ -6,7 +6,7 @@ const Testimonials = () => {
     {
       name: "Priya Sharma",
       role: "H1B Software Engineer",
-      content: "Adwik made my first US tax filing so simple. The visa-specific guidance was exactly what I needed.",
+      content: "Aadwik made my first US tax filing so simple. The visa-specific guidance was exactly what I needed.",
       rating: 5,
       image: "https://images.pexels.com/photos/3777943/pexels-photo-3777943.jpeg?auto=compress&cs=tinysrgb&w=400"
     },
@@ -31,7 +31,7 @@ const Testimonials = () => {
       <div className="container">
         <h2 className="section-title">Trusted by Thousands</h2>
         <p className="section-subtitle">
-          See what our clients say about their experience with Adwik
+          See what our clients say about their experience with Aadwik
         </p>
         
         <div className="testimonials-grid">
