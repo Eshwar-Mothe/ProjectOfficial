@@ -1,0 +1,86 @@
+.offline-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(120deg, #74ebd5, #acb6e5);
+  text-align: center;
+  font-family: "Press Start 2P", cursive;
+  padding: 20px;
+}
+
+.offline-box {
+  margin-bottom: 40px;
+}
+
+.offline-img {
+  width: 200px;
+  margin-bottom: 20px;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.offline-title {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #2c3e50;
+}
+
+.offline-subtitle {
+  font-size: 14px;
+  color: #34495e;
+}
+
+/* Game Styling */
+.game-container {
+  position: relative;
+  width: 400px;
+  height: 200px;
+  background: #fff;
+  border: 3px solid #2c3e50;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.character {
+  width: 40px;
+  height: 40px;
+  background: #27ae60;
+  position: absolute;
+  bottom: 0;
+  left: 30px;
+  transition: all 0.2s;
+}
+
+.jump {
+  animation: jumpAnim 0.5s linear;
+}
+
+@keyframes jumpAnim {
+  0% { bottom: 0; }
+  50% { bottom: 60px; }
+  100% { bottom: 0; }
+}
+
+.obstacle {
+  width: 30px;
+  height: 30px;
+  background: #e74c3c;
+  position: absolute;
+  bottom: 0;
+}
+
+.game-over {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  color: #e74c3c;
+}

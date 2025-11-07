@@ -1,0 +1,19 @@
+# Allow all web crawlers full access
+User-agent: *
+Allow: /
+
+# Disallow crawling of admin and sensitive paths if any (replace with your real paths)
+Disallow: /admin/
+Disallow: /signin/
+Disallow: /private/
+Disallow: /config/
+
+# Sitemap location
+Sitemap: https://www.aadwiktaxsolutions.com/sitemap.xml
+
+# Crawl delay (optional - to control crawl rate)
+# Crawl-delay: 10
+
+# Prevent indexing of duplicate or staging content (optional)
+# Disallow: /staging/
+# Disallow: /test/
